@@ -1,0 +1,8 @@
+name: Gateway
+version: '0.0.1'
+main: com.sampreet.gateway.Gateway
+api-version: '1.21'
+prefix: Gateway
+authors: [ Sampreet Singh ]
+description: A Minecraft server plugin that replaces the vanilla whitelist system with support for both online and offline mode players.
+website: https://github.com/npmsam/Gateway
