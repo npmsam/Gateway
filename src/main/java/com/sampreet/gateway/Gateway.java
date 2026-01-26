@@ -6,12 +6,27 @@ public final class Gateway extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        saveDefaultConfig();
 
+        if (!getConfig().getBoolean("enabled", true)) {
+            logMessage("system.status.disabled");
+
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
+        logMessage("system.lifecycle.enable");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        logMessage("system.lifecycle.disable");
+    }
+
+    private void logMessage(String path) {
+        String message = getConfig().getString(path);
+        if (message == null || message.trim().isEmpty()) return;
+        message = message.replace("<plugin_version>", getDescription().getVersion());
+        getLogger().info(message);
     }
 }
