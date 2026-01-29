@@ -12,6 +12,14 @@ public class ReloadCommand extends SubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("whitelist.reload")) {
+            Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.errors.no_permission"));
+            if (message == null) return;
+
+            sender.sendMessage(message);
+            return;
+        }
+
         plugin.reloadConfig();
 
         String message = plugin.getConfig().getString("messages.commands.reload");

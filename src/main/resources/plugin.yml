@@ -10,3 +10,16 @@ commands:
   whitelist:
     description: Command that replaces the vanilla /whitelist command.
     usage: /<command> <subcommand> <argument>
+permissions:
+  whitelist.toggle:
+    description: Allows turning the whitelist on or off.
+    default: op
+  whitelist.modify:
+    description: Allows adding or removing players to the whitelist.
+    default: op
+  whitelist.reload:
+    description: Allows reloading the whitelist.
+    default: op
+  whitelist.list:
+    description: Allows viewing the list of players in the whitelist.
+    default: op

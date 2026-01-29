@@ -17,16 +17,18 @@ public class ListCommand extends SubCommand {
 
     @Override
     public void execute(CommandSender sender, String @NotNull [] args) {
+        if (!sender.hasPermission("whitelist.list")) {
+            sendMessage(sender, "messages.commands.errors.no_permission");
+            return;
+        }
+
         String message = plugin.getConfig().getString("messages.commands.list");
         if (message == null || message.trim().isEmpty()) return;
 
         List<PlayerEntry> entries = plugin.getJsonHelper().list();
 
         if (entries.isEmpty()) {
-            Component errorMessage = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.errors.no_players_whitelisted"));
-            if (errorMessage == null) return;
-
-            sender.sendMessage(message);
+            sendMessage(sender, "messages.commands.errors.no_players_whitelisted");
             return;
         }
 
@@ -41,5 +43,12 @@ public class ListCommand extends SubCommand {
         if (component != null) {
             sender.sendMessage(component);
         }
+    }
+
+    private void sendMessage(CommandSender sender, String path) {
+        Component message = MessagesHelper.translateColors(plugin.getConfig().getString(path));
+        if (message == null) return;
+
+        sender.sendMessage(message);
     }
 }

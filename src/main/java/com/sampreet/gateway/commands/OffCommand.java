@@ -12,6 +12,11 @@ public class OffCommand extends SubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("whitelist.toggle")) {
+            sendMessage(sender, "messages.commands.errors.no_permission");
+            return;
+        }
+
         if (!plugin.getConfig().getBoolean("enabled")) {
             sendMessage(sender, "messages.commands.errors.already_off");
             return;

@@ -16,6 +16,11 @@ public class RemoveCommand extends SubCommand {
 
     @Override
     public void execute(CommandSender sender, String @NotNull [] args) {
+        if (!sender.hasPermission("whitelist.modify")) {
+            sendMessage(sender, "messages.commands.errors.no_permission", null);
+            return;
+        }
+
         if (args.length == 0) {
             sendMessage(sender, "messages.commands.errors.no_player", null);
             return;
