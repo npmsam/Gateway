@@ -93,10 +93,12 @@ public class JsonHelper {
     }
 
     public void remove(PlayerEntry playerEntry) {
-        if (!check(playerEntry))
-            return;
+        if (playerEntry == null) return;
 
-        entries.remove(playerEntry);
+        entries.removeIf(entry ->
+                (playerEntry.onlineUuid != null && playerEntry.onlineUuid.equals(entry.onlineUuid)) ||
+                        (playerEntry.offlineUuid != null && playerEntry.offlineUuid.equals(entry.offlineUuid))
+        );
     }
 
     public List<PlayerEntry> list() {
