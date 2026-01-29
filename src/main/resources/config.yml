@@ -7,3 +7,24 @@ system:
   lifecycle:
     enable: "Enabled Letters v<version>"
     disable: "Disabled Letters v<version>"
+
+  # Messages sent when a command is run
+  commands:
+    'on': "<green>Whitelist is now turned on"
+    'off': "<red>Whitelist is now turned off"
+    add: "<green>Added <player> to whitelist"
+    remove: "<red>Removed <player> from whitelist"
+    reload: "<green>Reloaded the whitelist"
+
+    # Messages sent when an error occurs on a command being run
+    errors:
+      saving_failed: "Failed to save whitelist."
+      loading_failed: "Failed to load whitelist."
+      no_player: "<red>You must specify a player name."
+      no_command: "<red>You must specify a subcommand."
+      no_permission: "<red>You do not have permission to do that."
+      invalid_command: "<red>Unknown command."
+      already_on: "<red>Whitelist is already turned on"
+      already_off: "<red>Whitelist is already turned off"
+      not_whitelisted: "<red><player> is not whitelisted"
+      already_whitelisted: "<red><player> is already whitelisted"

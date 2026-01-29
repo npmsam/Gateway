@@ -6,3 +6,7 @@ prefix: Gateway
 authors: [ Sampreet Singh ]
 description: A Minecraft server plugin that replaces the vanilla whitelist system with support for both online and offline mode players.
 website: https://github.com/npmsam/Gateway
+commands:
+  whitelist:
+    description: Command that replaces the vanilla /whitelist command.
+    usage: /<command> <subcommand> <argument>

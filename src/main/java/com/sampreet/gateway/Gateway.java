@@ -1,7 +1,9 @@
 package com.sampreet.gateway;
 
+import com.sampreet.gateway.commands.WhitelistCommand;
 import com.sampreet.gateway.helpers.JsonHelper;
 import com.sampreet.gateway.listeners.AsyncPlayerPreLoginListener;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Gateway extends JavaPlugin {
@@ -14,6 +16,11 @@ public final class Gateway extends JavaPlugin {
 
         jsonHelper = new JsonHelper(getDataFolder(), this);
         jsonHelper.load();
+
+        PluginCommand whitelistPluginCommand = getCommand("whitelist");
+        if (whitelistPluginCommand != null) {
+            whitelistPluginCommand.setExecutor(new WhitelistCommand(this));
+        }
 
         getServer().getPluginManager().registerEvents(new AsyncPlayerPreLoginListener(this), this);
 
