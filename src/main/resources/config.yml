@@ -6,6 +6,7 @@ enabled: false
 messages:
   # Message sent when a non-whitelisted player tries joining the server.
   # You can use & codes and MiniMessage formatting
+  # Placeholders: <player>
   login_denied: "<red>You are not whitelisted."
 
   # Message sent to the console when the plugin is enabled or disabled
@@ -34,3 +35,4 @@ messages:
       already_off: "<red>Whitelist is already turned off"
       not_whitelisted: "<red><player> is not whitelisted"
       already_whitelisted: "<red><player> is already whitelisted"
+      no_players_whitelisted: "<red>No players are whitelisted"

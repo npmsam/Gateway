@@ -6,11 +6,10 @@ import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 public class MessagesHelper {
     public static Component translateColors(String message) {
-        if (message == null)
+        if (message == null || message.trim().isEmpty())
             return null;
 
         Component messageComponent = MiniMessage.miniMessage().deserialize(message);
-
         String legacySerialized = LegacyComponentSerializer.legacyAmpersand().serialize(messageComponent);
 
         return LegacyComponentSerializer.legacyAmpersand().deserialize(legacySerialized);
