@@ -18,7 +18,7 @@ public class JsonHelper {
     private final File file;
     private final Gson gson;
 
-    private List < PlayerEntry > entries = new ArrayList < > ();
+    private List<PlayerEntry> entries = new ArrayList<>();
 
     public JsonHelper(File dataFolder, Gateway plugin) {
         this.plugin = plugin;
@@ -32,10 +32,11 @@ public class JsonHelper {
             return;
         }
 
-        Type type = new TypeToken < List < PlayerEntry >> () {}.getType();
+        Type type = new TypeToken<List<PlayerEntry>>() {
+        }.getType();
 
         try (Reader reader = new FileReader(file)) {
-            List < PlayerEntry > loaded = gson.fromJson(reader, type);
+            List<PlayerEntry> loaded = gson.fromJson(reader, type);
             if (loaded != null) entries = loaded;
         } catch (IOException exception) {
             String errorMessage = plugin.getConfig().getString("messages.errors.loading-failed");
@@ -61,7 +62,7 @@ public class JsonHelper {
     public PlayerEntry get(UUID uuid) {
         if (uuid == null) return null;
 
-        for (PlayerEntry entry: entries) {
+        for (PlayerEntry entry : entries) {
             if (uuid.equals(entry.onlineUuid) || uuid.equals(entry.offlineUuid)) {
                 return entry;
             }
@@ -100,7 +101,7 @@ public class JsonHelper {
         return true;
     }
 
-    public List < PlayerEntry > list() {
+    public List<PlayerEntry> list() {
         return List.copyOf(entries);
     }
 }

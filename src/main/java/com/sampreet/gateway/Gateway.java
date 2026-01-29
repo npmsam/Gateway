@@ -1,19 +1,21 @@
 package com.sampreet.gateway;
 
+import com.sampreet.gateway.helpers.JsonHelper;
+import com.sampreet.gateway.listeners.AsyncPlayerPreLoginListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Gateway extends JavaPlugin {
+
+    private JsonHelper jsonHelper;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
-        if (!getConfig().getBoolean("enabled", true)) {
-            logMessage("system.status.disabled");
+        jsonHelper = new JsonHelper(getDataFolder(), this);
+        jsonHelper.load();
 
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        }
+        getServer().getPluginManager().registerEvents(new AsyncPlayerPreLoginListener(this), this);
 
         logMessage("system.lifecycle.enable");
     }
@@ -28,5 +30,9 @@ public final class Gateway extends JavaPlugin {
         if (message == null || message.trim().isEmpty()) return;
         message = message.replace("<version>", getDescription().getVersion());
         getLogger().info(message);
+    }
+
+    public JsonHelper getJsonHelper() {
+        return jsonHelper;
     }
 }

@@ -1,4 +1,4 @@
-# If set to false, the plugin will not register any listeners or send messages
+# If set to false, the plugin will not block any player from joining.
 enabled: true
 
 # These messages are shown in the console or as command feedback
@@ -7,7 +7,3 @@ system:
   lifecycle:
     enable: "Enabled Letters v<version>"
     disable: "Disabled Letters v<version>"
-
-  # Message sent to the console before the plugin disables itself due to a config option
-  status:
-    disabled: "Plugin is disabled in config."

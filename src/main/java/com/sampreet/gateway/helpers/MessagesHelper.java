@@ -1,8 +1,8 @@
 package com.sampreet.gateway.helpers;
 
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import net.kyori.adventure.text.Component;
 
 public class MessagesHelper {
     public static Component translateColors(String message) {
