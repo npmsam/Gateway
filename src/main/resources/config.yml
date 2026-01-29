@@ -5,5 +5,9 @@ enabled: true
 system:
   # Message sent to the console when the plugin is enabled or disabled
   lifecycle:
-    enable: "Enabled Letters v<plugin_version>"
-    disable: "Disabled Letters v<plugin_version>"
+    enable: "Enabled Letters v<version>"
+    disable: "Disabled Letters v<version>"
+
+  # Message sent to the console before the plugin disables itself due to a config option
+  status:
+    disabled: "Plugin is disabled in config."
