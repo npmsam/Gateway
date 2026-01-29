@@ -13,17 +13,20 @@ public class OffCommand extends SubCommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (!plugin.getConfig().getBoolean("enabled")) {
-            Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.errors.already_off"));
-            if (message == null) return;
-            sender.sendMessage(message);
+            sendMessage(sender, "messages.commands.errors.already_off");
             return;
         }
 
         plugin.getConfig().set("enabled", false);
         plugin.saveConfig();
 
-        Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.off"));
+        sendMessage(sender, "messages.commands.off");
+    }
+
+    private void sendMessage(CommandSender sender, String path) {
+        Component message = MessagesHelper.translateColors(plugin.getConfig().getString(path));
         if (message == null) return;
+
         sender.sendMessage(message);
     }
 }
