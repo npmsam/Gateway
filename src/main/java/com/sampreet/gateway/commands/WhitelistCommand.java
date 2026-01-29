@@ -22,18 +22,19 @@ public class WhitelistCommand implements CommandExecutor {
 
         subCommands.put("on", new OnCommand(plugin));
         subCommands.put("off", new OffCommand(plugin));
+        subCommands.put("reload", new ReloadCommand(plugin));
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         if (args.length == 0) {
-            sendMessage(sender, "system.commands.errors.no_command");
+            sendMessage(sender, "messages.commands.errors.no_command");
             return true;
         }
 
         SubCommand subCommand = subCommands.get(args[0].toLowerCase());
         if (subCommand == null) {
-            sendMessage(sender, "system.commands.errors.invalid_command");
+            sendMessage(sender, "messages.commands.errors.invalid_command");
             return true;
         }
 

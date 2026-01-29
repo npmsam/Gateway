@@ -24,12 +24,12 @@ public final class Gateway extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new AsyncPlayerPreLoginListener(this), this);
 
-        logMessage("system.lifecycle.enable");
+        logMessage("messages.lifecycle.enable");
     }
 
     @Override
     public void onDisable() {
-        logMessage("system.lifecycle.disable");
+        logMessage("messages.lifecycle.disable");
     }
 
     private void logMessage(String path) {

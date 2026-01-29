@@ -13,7 +13,7 @@ public class OnCommand extends SubCommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (plugin.getConfig().getBoolean("enabled")) {
-            Component message = MessagesHelper.translateColors(plugin.getConfig().getString("system.commands.errors.already_on"));
+            Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.errors.already_on"));
             if (message == null) return;
             sender.sendMessage(message);
             return;
@@ -22,7 +22,7 @@ public class OnCommand extends SubCommand {
         plugin.getConfig().set("enabled", true);
         plugin.saveConfig();
 
-        Component message = MessagesHelper.translateColors(plugin.getConfig().getString("system.commands.on"));
+        Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.on"));
         if (message == null) return;
         sender.sendMessage(message);
     }

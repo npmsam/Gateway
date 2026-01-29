@@ -1,8 +1,13 @@
 # If set to false, the plugin will not block any player from joining.
 enabled: true
 
-# These messages are shown in the console or as command feedback
+# This contains all configurable messages used internally by the plugin,
+# These messages are shown to non-whitelisted players, in console or as command feedback.
 system:
+  # Message sent when a non-whitelisted player tries joining the server.
+  # You can use & codes and MiniMessage formatting
+  login_denied: "<red>You are not whitelisted."
+
   # Message sent to the console when the plugin is enabled or disabled
   lifecycle:
     enable: "Enabled Letters v<version>"
