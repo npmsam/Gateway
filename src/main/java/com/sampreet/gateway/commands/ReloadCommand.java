@@ -17,7 +17,7 @@ public class ReloadCommand extends SubCommand {
         String message = plugin.getConfig().getString("messages.commands.reload");
         if (message == null || message.trim().isEmpty()) return;
 
-        message = message.replace("<plugin_version>", plugin.getDescription().getVersion());
+        message = message.replace("<version>", plugin.getDescription().getVersion());
         Component messageComponent = MessagesHelper.translateColors(message);
         if (messageComponent == null) return;
 

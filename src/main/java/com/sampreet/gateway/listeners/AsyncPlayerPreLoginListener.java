@@ -23,7 +23,7 @@ public class AsyncPlayerPreLoginListener implements Listener {
 
         asyncPlayerPreLoginEvent.setLoginResult(AsyncPlayerPreLoginEvent.Result.KICK_WHITELIST);
 
-        String kickMessage = plugin.getConfig().getString("messages.login.denied");
+        String kickMessage = plugin.getConfig().getString("messages.login_denied");
         if (kickMessage == null || kickMessage.trim().isEmpty()) return;
         kickMessage = kickMessage.replace("<player>", asyncPlayerPreLoginEvent.getName());
 

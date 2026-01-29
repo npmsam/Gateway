@@ -1,9 +1,9 @@
 # If set to false, the plugin will not block any player from joining.
-enabled: true
+enabled: false
 
 # This contains all configurable messages used internally by the plugin,
 # These messages are shown to non-whitelisted players, in console or as command feedback.
-system:
+messages:
   # Message sent when a non-whitelisted player tries joining the server.
   # You can use & codes and MiniMessage formatting
   login_denied: "<red>You are not whitelisted."
@@ -20,6 +20,7 @@ system:
     add: "<green>Added <player> to whitelist"
     remove: "<red>Removed <player> from whitelist"
     reload: "<green>Reloaded the whitelist"
+    list: "Whitelisted players are <list>"
 
     # Messages sent when an error occurs on a command being run
     errors:

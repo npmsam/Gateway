@@ -22,6 +22,9 @@ public class WhitelistCommand implements CommandExecutor {
 
         subCommands.put("on", new OnCommand(plugin));
         subCommands.put("off", new OffCommand(plugin));
+        subCommands.put("add", new AddCommand(plugin));
+        subCommands.put("list", new ListCommand(plugin));
+        subCommands.put("remove", new RemoveCommand(plugin));
         subCommands.put("reload", new ReloadCommand(plugin));
     }
 

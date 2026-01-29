@@ -39,7 +39,7 @@ public class JsonHelper {
             List<PlayerEntry> loaded = gson.fromJson(reader, type);
             if (loaded != null) entries = loaded;
         } catch (IOException exception) {
-            String errorMessage = plugin.getConfig().getString("messages.errors.loading-failed");
+            String errorMessage = plugin.getConfig().getString("messages.commands.errors.loading_failed");
             if (errorMessage == null || errorMessage.trim().isEmpty())
                 return;
 
@@ -51,7 +51,7 @@ public class JsonHelper {
         try (Writer writer = new FileWriter(file)) {
             gson.toJson(entries, writer);
         } catch (IOException exception) {
-            String errorMessage = plugin.getConfig().getString("messages.errors.saving-failed");
+            String errorMessage = plugin.getConfig().getString("messages.commands.errors.saving_failed");
             if (errorMessage == null || errorMessage.trim().isEmpty())
                 return;
 
@@ -85,20 +85,18 @@ public class JsonHelper {
                 (offline != null && get(offline) != null);
     }
 
-    public boolean add(@NotNull PlayerEntry entry) {
-        if (entry.onlineUuid != null && get(entry.onlineUuid) != null) return false;
-        if (entry.offlineUuid != null && get(entry.offlineUuid) != null) return false;
+    public void add(@NotNull PlayerEntry playerEntry) {
+        if (playerEntry.onlineUuid != null && get(playerEntry.onlineUuid) != null) return;
+        if (playerEntry.offlineUuid != null && get(playerEntry.offlineUuid) != null) return;
 
-        entries.add(entry);
-        return true;
+        entries.add(playerEntry);
     }
 
-    public boolean remove(UUID uuid) {
-        PlayerEntry entry = get(uuid);
-        if (entry == null) return false;
+    public void remove(PlayerEntry playerEntry) {
+        if (!check(playerEntry))
+            return;
 
-        entries.remove(entry);
-        return true;
+        entries.remove(playerEntry);
     }
 
     public List<PlayerEntry> list() {
