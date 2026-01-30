@@ -15,7 +15,7 @@ public class AddCommand extends SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String @NotNull [] args) {
+    public void execute(@NotNull CommandSender sender, String @NotNull [] args) {
         if (!sender.hasPermission("whitelist.modify")) {
             sendMessage(sender, "messages.commands.errors.no_permission", null);
             return;

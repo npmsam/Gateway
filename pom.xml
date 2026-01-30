@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sampreet</groupId>
     <artifactId>gateway</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>Gateway</name>
     <description>A Minecraft server plugin that replaces the vanilla whitelist system with support for both online and

@@ -4,6 +4,7 @@ import com.sampreet.gateway.Gateway;
 import com.sampreet.gateway.helpers.MessagesHelper;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class ReloadCommand extends SubCommand {
     public ReloadCommand(Gateway plugin) {
@@ -11,7 +12,7 @@ public class ReloadCommand extends SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(@NotNull CommandSender sender, String[] args) {
         if (!sender.hasPermission("whitelist.reload")) {
             Component message = MessagesHelper.translateColors(plugin.getConfig().getString("messages.commands.errors.no_permission"));
             if (message == null) return;
